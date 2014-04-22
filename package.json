@@ -1,0 +1,33 @@
+{
+  "name": "passport-simpleid",
+  "version": "0.1.0",
+  "description": "SimpleID authentication strategy for Passport.",
+  "keywords": [
+    "passport",
+    "auth",
+    "authn",
+    "authentication",
+    "identity"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/impomezia/passport-simpleid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/impomezia/passport-simpleid/issues"
+  },
+  "author": "Alexander Sedov <imp@schat.me> (https://schat.me)",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "./lib/passport-simpleid",
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/impomezia/passport-simpleid",
+  "dependencies": {
+    "pkginfo": "^0.3.0",
+    "passport-oauth": "^1.0.0"
+  }
+}
