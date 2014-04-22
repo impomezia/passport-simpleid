@@ -18,17 +18,19 @@ and OAuth 2.0 tokens.  The strategy requires a `verify` callback, which accepts
 these credentials and calls `done` providing a user, as well as `options`
 specifying a client ID, client secret, and callback URL.
 
-    passport.use(new SimpleIdStrategy({
-        clientID: SIMPLEID_CLIENT_ID,
-        clientSecret: SIMPLEID_CLIENT_SECRET,
-        callbackURL: "http://127.0.0.1:3000/auth/simpleid/callback"
-      },
-      function(accessToken, refreshToken, profile, done) {
-        User.findOrCreate({ simpleId: profile.id }, function (err, user) {
-          return done(err, user);
-        });
-      }
-    ));
+```js
+passport.use(new SimpleIdStrategy({
+    clientID: SIMPLEID_CLIENT_ID,
+    clientSecret: SIMPLEID_CLIENT_SECRET,
+    callbackURL: "http://127.0.0.1:3000/auth/simpleid/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({ simpleId: profile.id }, function (err, user) {
+      return done(err, user);
+    });
+  }
+));
+```
 
 #### Authenticate Requests
 
@@ -38,15 +40,17 @@ authenticate requests.
 For example, as route middleware in an [Express](http://expressjs.com/)
 application:
 
-    app.get('/auth/simpleid',
-      passport.authenticate('simpleid'));
+```js
+app.get('/auth/simpleid',
+  passport.authenticate('simpleid'));
 
-    app.get('/auth/simpleid/callback', 
-      passport.authenticate('simpleid', { failureRedirect: '/login' }),
-      function(req, res) {
-        // Successful authentication, redirect home.
-        res.redirect('/');
-      });
+app.get('/auth/simpleid/callback', 
+  passport.authenticate('simpleid', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+```
 
 ## Credits
 
